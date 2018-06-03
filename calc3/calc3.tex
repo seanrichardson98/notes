@@ -87,15 +87,18 @@ Previous math classes have addressed simple functions that take $1$ variable as 
 \subsection{Dot Product}
 The dot product is an operation that takes two vectors as inputs and outputs a scalar.
 \begin{mybox}
-
-    For two vectors $\vec{a}=\myvec{a_x,a_y,a_z}$ and $\vec{b}=\myvec{b_x,b_y,b_z}$, the dot product is denoted $\vec{a} \cdot \vec{b}$ and is equivalent to:
+    For two vectors $\vec{a}=\myvec{a_x,a_y}$ and $\vec{b}=\myvec{b_x,b_y}$, the dot product is denoted $\vec{a} \cdot \vec{b}$ and is equivalent to:
     \begin{equation*}
-        \vec{a} \cdot \vec{b} = \mymag{\vec{a}}\mymag{\vec{b}}\cos{\theta} = a_xb_x+a_yb_y+a_zb_z
+        \vec{a} \cdot \vec{b} = \mymag{\vec{a}}\mymag{\vec{b}}\cos{\theta} = a_x b_x+a_y b_y
     \end{equation*}
-    Where $\theta$ is the angle between the two vectors.
+    Where $\theta$ is the angle between the two vectors.\\
+    In $n$ dimensions, for $a = \myvec{a_1,a_2,\ldots,a_n}$ and $b = \myvec{b_1,b_2,\ldots,b_n}$
+    \begin{equation*}
+    \vec{a} \cdot \vec{b} = \mymag{\vec{a}}\mymag{\vec{b}}\cos{\theta} = \sum_i a_i b_i
+    \end{equation*}
 \end{mybox}
 \begin{proof}
-    The derivation of the dot product is related to the law of cosines. Consider the left triangle shown in Figure \ref{two_triangles}.
+    The derivation of the dot product is related to the law of cosines. Consider the left triangle shown in Figure~\ref{two_triangles}.
 \begin{figure}
 \centering
 \begin{subfigure}
@@ -244,7 +247,7 @@ Translating between spherical $(r_{sph},\theta,\phi)$ and cartesian $(x,y,z)$ co
 \subsection{Coordinate Vector Fields}
 Consider a mapping from curvilinear space to cartesian space. Coordinate vector fields have the job of pointing in the direction curviliear values increase within cartesian space.
 \begin{mybox}
-    Consider some transformation $T(u,v)=(x,y)$. The direction and magnitude in which an arbitrary curvilinear coordinate, $u$, increases at any given $(u,v,w)$ is given by the coordinate vector field, $\partial_u = \myvec{\frac{dx}{du},\frac{dy}{du}}$.
+    Consider some transformation $T(u,v)=(x,y)$. The direction and magnitude in which an arbitrary curvilinear coordinate, $u$, increases at any given $(u,v)$ is given by the coordinate vector field, $\partial_u = \myvec{\mypder{x}{u},\mypder{y}{u}}$.
 \end{mybox}
 \marginpar{justification?}
 \subsubsection{Polar Vector Field}
@@ -279,21 +282,46 @@ Combining the effects of traveling along the two gridlines through addition give
 We now condense this expression with matrix notation.
 \begin{equation}
     \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
-    &\approx \begin{pmatrix}
+    \approx \begin{pmatrix}
     \mypder{x}{u} && \mypder{x}{v} \\[6pt]
     \mypder{y}{v} && \mypder{y}{v}
     \end{pmatrix}
     \begin{pmatrix} \Delta u \\ \Delta v \end{pmatrix}
     \label{eq:linearization}
 \end{equation}
-The matrix appearing in the above eqution is widely used, so it gets the name ``Jacobian matrix''.
+This equation approximates how movement in the input $u,v$ plane translates to movement in the output $x,y$ plane. The matrix appearing in the above equation is widely used, so it gets the name ``Jacobian matrix''.
 \begin{mybox}
     The \textit{Jacobian Matrix} of a transformation $T$ is abreviated as $DT$ and consits of the partial vectors of the transformation in each column. For the transformation $(x,y) = T(u,v)$:
-    \begin{equation*}
-        DT = \begin{pmatrix}
+        $DT = \begin{pmatrix}
         \mypder{x}{u} && \mypder{x}{v} \\[6pt]
         \mypder{y}{v} && \mypder{y}{v}
+    \end{pmatrix}$.
+    In general, the Jacobian Matrix for a transformation $(x^1,x^2,\ldots,x^n) = T(y^1,y^2,\ldots,y^m)$ is given by,
+    \begin{equation*}
+    DT = \begin{pmatrix}
+        \mypder{x^1}{y^1} & \cdots & \mypder{x^1}{y^m} \\
+        \vdots            & \ddots& \vdots\\
+        \mypder{x^n}{y^1} & \cdots & \mypder{x^n}{y^m}
     \end{pmatrix}
+    \text{Where the $(i,j)$ entry of $DT$ is $DT_{ij} = \mypder{x^i}{y^j}$}
     \end{equation*}
 \end{mybox}
+\noindent We can now combine equation~\ref{eq:linearization} with the idea of a Jacobian Matrix to formally introduce linearization.
+\begin{mybox}
+    Given a transformation $(x,y)=T(u,v)$, the \textit{linearization} is the linear approximation of how a small change in $u$ and $v$ affects $x$ and $y$ given by the following equation,
+\begin{equation*}
+\begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+    \approx DT
+    \begin{pmatrix} \Delta u \\ \Delta v \end{pmatrix}
+\end{equation*}
+    In general, for $(x^1,x^2,\ldots,x^n) = T(y^1,y^2,\ldots,y^m)$:
+\begin{equation*}
+    \begin{pmatrix} \Delta x^1 \\ \vdots \\ \Delta x^n \end{pmatrix}
+    \approx DT
+    \begin{pmatrix} \Delta y^1 \\ \vdots \\ \Delta y^m \end{pmatrix}
+\end{equation*}
+\end{mybox}
+\marginpar{error analysis}
+\subsection{Chain Rule}
+
 \end{document}
