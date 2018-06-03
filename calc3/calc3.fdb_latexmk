@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1528008625 "calc3.tex" "calc3.pdf" "calc3" 1528008625
+["pdflatex"] 1528015877 "calc3.tex" "calc3.pdf" "calc3" 1528015877
   "/etc/texmf/web2c/texmf.cnf" 1516347471 1101 af7716885e081ab43982cab7b4672c1a ""
-  "/home/doerd/texmf/tex/latex/mine/my_math.sty" 1526523777 516 bde760acc4babfc5a9862cb8c25edf29 ""
+  "/home/doerd/texmf/tex/latex/mine/my_math.sty" 1528014520 570 2fd23a032982b4e6760f090172630854 ""
   "/home/doerd/texmf/tex/latex/mine/my_notes.sty" 1516348274 377 5def1322568bb1330011daf1c2481ce9 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -140,10 +140,10 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1516347612 1863403 f3ff9a4253bcb5fb9a9baaf0c572cb01 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1516347618 3853645 60d52f6897b383340d4193bb3aa789a2 ""
-  "calc3.aux" 1528008625 1708 7a5701c7f8064a9d7da10d7f8d6d38f5 ""
-  "calc3.tex" 1528008625 11615 48c7f5b953d6e8f8b0a76cd380121893 ""
+  "calc3.aux" 1528015873 1928 597109da58777d312864190e310d9739 ""
+  "calc3.tex" 1528015876 14383 5235f30e61fb04e7eb284ce25f8a5866 ""
   (generated)
-  "calc3.log"
-  "calc3.aux"
-  "calc3.toc"
   "calc3.pdf"
+  "calc3.log"
+  "calc3.toc"
+  "calc3.aux"

@@ -82,6 +82,8 @@ co\marginpar{explain `taco'}
 \subsection{Vector Fields}
 \subsection{Parallelogram Grid}
 \subsection{Transformations}
+Previous math classes have addressed simple functions that take $1$ variable as an input and $1$ variable as an output. We visualized these functions through graphs, where one dimension (the $x$ axis) is reserved for inputs and one direction (the $y$ axis) is reserved for outputs. Functions with two inputs and one output you learned as three dimensional functions --- the $x$ and $y$ axes are inputs and the $z$ axis is the output. However, once we reach $2$ inputs, $(u,v)$, and $2$ outputs, $(x,y)$, we have run out of dimensions to visualize in. The idea of a \textit{transformation} is an alternate visualization technique that instead transforms the input $(u,v)$ plane into the output $(x,y)$ plane. The transformation simply demonstrates how grid lines in the input space are distorted into the output space.
+\marginpar{transformation example figure}
 \subsection{Dot Product}
 The dot product is an operation that takes two vectors as inputs and outputs a scalar.
 \begin{mybox}
@@ -239,14 +241,59 @@ Translating between spherical $(r_{sph},\theta,\phi)$ and cartesian $(x,y,z)$ co
     In calculating $\theta$, you must add $\pi$ if the point is in quadrants $3$ or $4$.
 \end{mybox}
 
-\subsubsection{Tranformations}
-Previous math classes have addressed simple functions that take $1$ variable as an input and $1$ variable as an output. We visualized these functions through graphs, where one dimension (the $x$ axis) is reserved for inputs and one direction (the $y$ axis) is reserved for outputs. Functions with two inputs and one output you learned as three dimensional functions --- the $x$ and $y$ axes are inputs and the $z$ axis is the output. However, once we reach $2$ inputs and $2$ outputs, we have run out of dimensions to visualize in. The idea of a \textit{transformation} solves this issue by  
 \subsection{Coordinate Vector Fields}
 Consider a mapping from curvilinear space to cartesian space. Coordinate vector fields have the job of pointing in the direction curviliear values increase within cartesian space.
 \begin{mybox}
-    Consider some transformation $T(u,v,w)=(x,y,z)$. The direction and magnitude in which an arbitrary curvilinear coordinate, $u$, increases at any given $(u,v,w)$ is given by the coordinate vector field, $\partial_u = \myvec{\frac{dx}{du},\frac{dy}{du},\frac{dz}{du}}$.
+    Consider some transformation $T(u,v)=(x,y)$. The direction and magnitude in which an arbitrary curvilinear coordinate, $u$, increases at any given $(u,v,w)$ is given by the coordinate vector field, $\partial_u = \myvec{\frac{dx}{du},\frac{dy}{du}}$.
 \end{mybox}
 \marginpar{justification?}
 \subsubsection{Polar Vector Field}
 For the polar coordinate transformation, $(x,y)=T(r,\theta)=(r\cos{\theta},r\sin{\theta})$, we are interested in finding the direction of increase of 
+\subsubsection{Cylindrical Vector Field}
+\subsubsection{Spherical Vector Field}
+\subsection{Linearization}
+Take some curvilinear transformation $(x,y) = T(u,v)$. This is a mapping of straight gridlines into bent gridlines. However, if we zoom into the output space enough, the gridlines will begin to appear as straight. The directions of these gridlines are given by the partial vectors, $\partial_u$ and $\partial_v$, at that point. So, the gridlines are close to straight, we can approximate a short journey along the $u,v$ gridlines in the $x,y$ plane by following the direction of the partial vectors, $\partial_u$ and $\partial_v$.\\
+Following the $u,v$ gridlines by small amounts $\Delta u$ and $\Delta v$ results in the following changes in $x$ and $y$:
+\begin{align*}
+    \begin{split}
+        &\text{Effect of following $u$ gridline:}\\
+        \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+        &\approx \partial_u \cdot \Delta u \\
+        \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+        &\approx \mypder{x}{u}\Delta u + \mypder{y}{u}\Delta u
+    \end{split}
+    \begin{split}
+        &\text{Effect of following $v$ gridline:}\\
+        \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+        &\approx \partial_u \cdot \Delta u \\
+        \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+        &\approx \mypder{x}{u}\Delta u + \mypder{y}{u}\Delta u
+    \end{split}
+\end{align*}
+Combining the effects of traveling along the two gridlines through addition gives the following.
+\begin{align*}
+    \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+    &\approx \mypder{x}{u}\Delta u + \mypder{y}{u}\Delta u
+    + \mypder{x}{v}\Delta v + \mypder{y}{v}\Delta v
+\end{align*}
+We now condense this expression with matrix notation.
+\begin{equation}
+    \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+    &\approx \begin{pmatrix}
+    \mypder{x}{u} && \mypder{x}{v} \\[6pt]
+    \mypder{y}{y} && \mypder{y}{v}
+    \end{pmatrix}
+    \begin{pmatrix} \Delta u \\ \Delta v \end{pmatrix}
+    \label{eq:linearization}
+\end{equation}
+The matrix appearing in the above eqution is widely used, so it gets the name ``Jacobian matrix''.
+\begin{mybox}
+    The \textit{Jacobian Matrix} of a transformation $T$ is abreviated as $DT$ and consits of the partial vectors of the transformation in each column. For the transformation $(x,y) = T(u,v)$:
+    \begin{equation*}
+        DT = \begin{pmatrix}
+        \mypder{x}{u} && \mypder{x}{v} \\[6pt]
+        \mypder{y}{y} && \mypder{y}{v}
+    \end{pmatrix}
+    \end{equation*}
+\end{mybox}
 \end{document}

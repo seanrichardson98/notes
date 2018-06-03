@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.18)  2 JUN 2018 23:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.18)  3 JUN 2018 01:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -486,13 +486,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--81
 []\OT1/cmr/m/n/10.95 LA ref-er-
  []
 
+
+Overfull \hbox (11.99261pt too wide) in paragraph at lines 86--86
+[]\OT1/cmr/m/n/10.95 transformation
+ []
+
 [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 \OT1/cmr/m/n/10.95 uct prop-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
 \OT1/cmr/m/n/10.95 er-ties and
  []
 
@@ -501,20 +506,31 @@ Overfull \hbox (2.50261pt too wide) in paragraph at lines 249--249
 []\OT1/cmr/m/n/10.95 justification? 
  []
 
-[6] (./calc3.aux) ) 
+[6]
+./calc3.tex:282: Misplaced alignment tab character &.
+l.282     &
+           \approx \begin{pmatrix}
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[7] (./calc3.aux) ) 
 Here is how much of TeX's memory you used:
- 14656 strings out of 493029
- 294799 string characters out of 6136234
- 345245 words of memory out of 5000000
- 17923 multiletter control sequences out of 15000+600000
- 10055 words of font info for 36 fonts, out of 8000000 for 9000
+ 14661 strings out of 493029
+ 294871 string characters out of 6136234
+ 346265 words of memory out of 5000000
+ 17928 multiletter control sequences out of 15000+600000
+ 10282 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,19n,75p,809b,723s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,20n,75p,848b,719s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb>
-Output written on calc3.pdf (6 pages, 146779 bytes).
+Output written on calc3.pdf (7 pages, 152260 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 53 compressed objects within 1 object stream
+ 79 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
