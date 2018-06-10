@@ -31,6 +31,8 @@
 {\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=test]}
 {\end{tcolorbox}}
 
+\setlength\parindent{0pt}
+
 \begin{document}
 \title{Discrete}
 \author{Sean Richardson}
@@ -135,5 +137,59 @@ The symbols:
 \end{theorem}
 \begin{theorem}
     $\lnot(\forall x \in D, p(x)) \iff \exists x \in D, \lnot p(x)$
+\end{theorem}
+\section{Informal Set Theory}
+There exists objects. Objects can be ``in'', ``belong to'' or be an``element'' of a set. If an object is in a set $S$, we say $a \in S$. If not, we say $a \notin S$. We can describe the elements of a set $S$ in the folliwing notation. $S = \{f \vert \text{rule that $f$ must obey} \}$.
+\begin{definition}
+    Let $A$ and $B$ be sets. If $\forall x \in A, x \in B$ then $A$ is a \emph{subset} of $B$, denoted $A \subseteq B$.
+\end{definition}
+\begin{definition}
+    The set of everything in the relevant universe is denoted $\mathcal{U}$.
+\end{definition}
+\begin{definition}
+    The set with nothing in it is the \emph{empty set}, denoted $\O$. $\O = \{ f \vert f \notin \mathcal{U} \}$.
+\end{definition}
+\begin{theorem}
+For any set $A$, $\O \subseteq A$.
+\end{theorem}
+\begin{definition}
+Let $A$ and $B$ be sets such that $A \subseteq B$ and $B \subseteq A$. Then, we say $A=B$.
+\end{definition}
+\begin{definition}
+Let $A$ and $B$ be sets. If $A \subseteq B$ but $A \neq B$ then $A$ is a \emph{proper subset} of $B$, denoted $A \subset B$.
+\end{definition}
+\begin{theorem}
+The empty set is unique.
+\end{theorem}
+\begin{definition}
+    Let $n$ be a nonnegative integer. A set containing $n$ distinct elements is called an \emph{n-set}.
+\end{definition}
+\begin{definition}
+    Let $A$ be an n-set. $n$ is called the \emph{cardinality} of $A$ or the \emph{order} of $A$, denoted $\vert A \vert = n$
+\end{definition}
+\begin{definition}
+    Let $A$ and $B$ be sets so that $B \in A$ and $\vert B \vert = r$. Then $B$ is said to be an \emph{r-subset} of $A$.
+\end{definition}
+\begin{theorem}
+    There are $(\begin{smallmatrix} n\\r \end{smallmatrix}$). $r$-subsets of and $n$-set.
+\end{theorem}
+\begin{definition}
+    Let $A$ be a set. The set of all subsets of $A$ is called the \emph{power set of $A$} dentoted $\mathcal{P}(A)$.
+\end{definition}
+\begin{theorem}
+    For any nonnegative integer $n$ there are $2^n$ subsets of an $n$-set $A$. So $\myabs{\mathcal{P}(A)} = 2^n$
+\end{theorem}
+/*Note about summing over choose operators*/
+\begin{definition}
+    Let $A$ and $B$ be sets. The \emph{union} of $A$ and $B$ denoted $A \cup B$ is defined $A \cup B = \{ x \vert x \in A \text{ or } x \in B \}$.
+\end{definition}
+\begin{definition}
+    Let $A$ and $B$ be sets. The \emph{intersection} of $A$ and $B$ denoted $A \cap B$ is defined $A \cap B = \{ x \vert x \in A \text{ and } x \in B \}$.
+\end{definition}
+\begin{definition}
+    Let $A$ and $B$ be sets. If $A \cap B = \O$ then $A$ and $B$ are \emph{disjoint}.
+\end{definition}
+\begin{theorem}
+    Let $A$ and $B$ be sets. Then $\myabs{A \cup B} = \myabs{A} + \myabs{B} - \myabs{A \cap B}$.
 \end{theorem}
 \end{document}
