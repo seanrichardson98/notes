@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{cancel}
+\usepackage{subfigure}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{my_notes}
+\usepackage{my_math}
+
+\newenvironment{mybox}
+{\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]}
+{\end{tcolorbox}}
+
+\newtheorem{proof}{Proof}
+\newtheorem{theorem}{Theorem}
+
+\newenvironment{mytbox}
+{\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=test]}
+{\end{tcolorbox}}
+
+\begin{document}
+\title{Discrete}
+\author{Sean Richardson}
+\date{\today}
+\maketitle
+
+\section{Combinatorics}
+
+Combinatorics studies methods of counting things.
+
+\begin{theorem}
+    Addition Principle: Consider some task $T$. If $T$ can be accomplished by methods $M_1,M_2,\dots,M_n$ which can each be accomplished in $a_1, a_2, \dots, a_n$ ways, then $T$ can be accomplished in $\sum a_k$ ways.
+\end{theorem}
+\begin{theorem}
+    Multiplication Principle: Consider some task $T$. If $T$ can be broken down into necessary subtasks $t_1,t_2,\dots,t_n$ which can be accomplished in $b_1,b_2,\dots,b_n$ ways, then $T$ can be done in $\prod b_k$ ways.
+\end{theorem}
+\begin{theorem}
+    An arrangment of $n$ objects is called a ``permutaion''. There are $n!$ possible permutations.
+\end{theorem}
+\begin{theorem}
+    An arrangment of $r$ objects out of a collection of $n$ objects is called an ``r-permutation''. This can be done in $P(n,r)= {}_{n}P_r = \frac{n!}{(n-r)!}$ ways.
+\end{theorem}
+\begin{theorem}
+    An r-combination is how many combinations of $r$ objects (ignoring order) you can choose from $n$ objects. There are $C(n,r)={}_{n}C_r=(\begin{smallmatrix}n \\ r \end{smallmatrix}) = \frac{n!}{r!(n-r)!}$ ways.
+\end{theorem}
+We will now try to determine how many ways $n$ balls can be put in to $r$ boxes. To see this, we use the following trick. Think of balls distributed into boxes in the following structure: $\circ \circ / \circ \circ \circ / \circ / \circ \circ$ where ``$\circ$'' represents balls and the ``/'' symbols divide the balls into categories or boxes. So, the amount of ways to divide $n$ balls into $r$ categories is the amount of ways we can the distribute the dividers among the characters. This is equivalent to ``\textit{characters} choose \textit{dividers}''. There are $n+r-1$ characters and $r-1$ dividers. So, we have $(\begin{smallmatrix} n+r-1 \\ r-1 \end{smallmatrix})$ ways to divide $n$ identical things into $r$ categories. Additionally, we have the following useful equivalency:
+\begin{align*}
+    \begin{pmatrix} n+r-1 \\ r-1 \end{pmatrix}
+    =\frac{(n+r-1)!}{(r-1)!(n+r-1-(r-1))} \\
+    =\frac{(n+r-1)!}{(n+r-1-(n))!(n)!}
+    = \begin{pmatrix} n+r-1 \\ n \end{pmatrix}
+\end{align*}
+\begin{theorem}
+    The number of ways to distribute $n$ identical balls into $r$ distinct boxes is $(\begin{smallmatrix} n+r-1 \\ r-1 \end{smallmatrix})$ or $(\begin{smallmatrix} n+r-1 \\ n \end{smallmatrix})$ ways.
+\end{theorem}
+\end{document}

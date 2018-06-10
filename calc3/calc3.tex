@@ -294,7 +294,7 @@ This equation approximates how movement in the input $u,v$ plane translates to m
     The \textit{Jacobian Matrix} of a transformation $T$ is abreviated as $DT$ and consits of the partial vectors of the transformation in each column. For the transformation $(x,y) = T(u,v)$:
         $DT = \begin{pmatrix}
         \mypder{x}{u} && \mypder{x}{v} \\[6pt]
-        \mypder{y}{v} && \mypder{y}{v}
+        \mypder{y}{u} && \mypder{y}{v}
     \end{pmatrix}$.
     In general, the Jacobian Matrix for a transformation $(x^1,x^2,\ldots,x^n) = T(y^1,y^2,\ldots,y^m)$ is given by,
     \begin{equation*}
@@ -323,5 +323,61 @@ This equation approximates how movement in the input $u,v$ plane translates to m
 \end{mybox}
 \marginpar{error analysis}
 \subsection{Chain Rule}
+Consider two Transformations: $(w,z) = T_1(u,v)$ converts the $u,v$ plane into the $w,z$ plane, and $(x,y) = T_2(w,z)$ then converts the $w,z$ plabe to the $x,y$ plane as shown in Figure~\ref{fig:nested_transformations}. From our knowledge of linearization, we know how local gridlines change through a single transformation, but how do they change through two transformations? For instance, in Figure~\ref{fig:nested_transformations}, how does a small displacement in the $u,v$ direction translate to change in the $x,y$ plane? /*Stuff about Figure~\ref{fig:chain_rule2}*/.
 
+\begin{align*}
+    \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+    &= D(T_2 \circ T_1)\rvert_{(u_0,v_0)}
+    \begin{pmatrix} \Delta u \\ \Delta v \end{pmatrix} \\
+\text{/*explanation?*/}\\
+    \begin{pmatrix} \Delta x \\ \Delta y \end{pmatrix}
+    &= DT_2\rvert_{(w_0,z_0)}\cdot DT_1\rvert_{(x_0,y_0)}
+    \begin{pmatrix} \Delta u \\ \Delta v \end{pmatrix} \\
+\end{align*}
+So, we have found the following.
+\begin{equation}
+    D(T_2 \circ T_1)\rvert_{(u_0,v_0)}
+    = DT_2\rvert_{(w_0,z_0)}\cdot DT_1\rvert_{(x_0,y_0)}
+\end{equation}
+We have arrived at this expression using the idea that a Jacobian Matrix shifts local gridlines. However, they also have a matrix representation.
+\begin{align*}
+    \begin{pmatrix}
+        \mypder{x}{u} & \mypder{x}{v} \\[6pt]
+        \mypder{y}{u} & \mypder{y}{v}
+    \end{pmatrix}
+    &= \begin{pmatrix}
+        \mypder{x}{w} & \mypder{x}{z} \\[6pt]
+        \mypder{y}{w} & \mypder{y}{z}
+    \end{pmatrix}
+    \begin{pmatrix}
+        \mypder{w}{u} & \mypder{w}{v} \\[6pt]
+        \mypder{z}{u} & \mypder{z}{v}
+    \end{pmatrix} \\
+    \begin{pmatrix}
+        \mypder{x}{u} & \mypder{x}{v} \\[6pt]
+        \mypder{y}{u} & \mypder{y}{v}
+    \end{pmatrix}
+    &= \begin{pmatrix}
+    \mypder{x}{w}\mypder{w}{u}+ 
+    \mypder{x}{z}\mypder{z}{u}&
+    \mypder{x}{w}\mypder{w}{v}+ 
+    \mypder{x}{z}\mypder{z}{v}\\[6pt]
+    \mypder{y}{w}\mypder{w}{u}+ 
+    \mypder{y}{z}\mypder{z}{u}&
+    \mypder{y}{w}\mypder{w}{v}+ 
+    \mypder{y}{z}\mypder{z}{v}
+    \end{pmatrix}
+\end{align*}
+
+\begin{figure}
+    \includegraphics[scale=0.08]{chain_rule1.jpg}
+    \caption{Nested transformations}
+    \label{fig:nested_transformations}
+\end{figure}
+\begin{figure}
+    \includegraphics[scale=0.08]{chain_rule2.jpg}
+    \caption{Nested transformations}
+    \label{fig:chain_rule2}
+\end{figure}
+\marginpar{figures are placeholder}
 \end{document}
