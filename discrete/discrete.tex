@@ -1,6 +1,7 @@
 \documentclass[11pt]{article}
 
 \usepackage{amsmath}
+\usepackage{amsthm}
 
 \usepackage{enumitem}
 \usepackage{commath}
@@ -20,8 +21,11 @@
 {\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]}
 {\end{tcolorbox}}
 
-\newtheorem{proof}{Proof}
-\newtheorem{theorem}{Theorem}
+%
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{proof*}{Proof}
+\newtheorem{definition}{Definition}[section]
 
 \newenvironment{mytbox}
 {\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=test]}
@@ -61,5 +65,75 @@ We will now try to determine how many ways $n$ balls can be put in to $r$ boxes.
 \end{align*}
 \begin{theorem}
     The number of ways to distribute $n$ identical balls into $r$ distinct boxes is $(\begin{smallmatrix} n+r-1 \\ r-1 \end{smallmatrix})$ or $(\begin{smallmatrix} n+r-1 \\ n \end{smallmatrix})$ ways.
+\end{theorem}
+\section{Number Theory}
+\begin{definition}
+    Let $k$ and $n$ be integers with $k \neq 0$. If there exists integer $q$ such that $kq=n$, we say $k$ \emph{divides} $n$, denoted $k \vert n$.
+\end{definition}
+\begin{theorem}
+    Let $a,b,c$ be integers. If $a \vert b$ and $b \vert c$, then $a \vert c$.
+\end{theorem}
+\begin{theorem}
+    Let $a,b,c$ be integers. If $a \vert b$ and $a \vert c$, then $a \vert b+c$.
+\end{theorem}
+\begin{theorem}
+    (The Division Algorithm). Let $m$ and $n$ be integers, with $m>0$. Then, there is a unique pair of integers $q$ and $r$ such that $n = mq+r$ where $0 \leq r < m$. 
+\end{theorem}
+/*Irrational numbers and $\sqrt{2}$*/
+\begin{definition}
+    Let $n > 0$ and $p > 1$ be integers. $p$ is \emph{prime} if ``$n\vert p$'' is only true if $n=p$ or $n=1$.
+\end{definition}
+There is a useful mathematical proof technique called \emph{induction}. Induction operates in two parts. If you want to proove some statement involving an arbitrary $n$ is true, you first proove it is true for the specific case $n=c$ where you choose $c$. Secondly, you show that if the statement holds for $n=k$, then it holds for $n=k+1$. Then, you are done. By the first part, you have prooved the case $n=c$. Then, combining this with the second part of the prood, you know it holds for $n=c+1$,$n=c+2$,$n=\dots$ A formal inductive proof has the following form:
+\begin{proof*}
+    \emph{Sample Inductive Proof:} \\
+    We proceed by the method of Induction, \\
+    For the base case of $n=0$, \emph{prove the statement holds for $n=0$} \\
+    Now we make the inductive hypotheseis that \emph{the statement holds for arbitrary $k$}. \\
+    Now we proceed to proove the inductive step \emph{proove that if statement holds for $k$, it holds for $k+1$}. \\
+    Thus by induction \emph{the statement holds}. \qed
+\end{proof*}
+\section{Logic}
+The symbols:
+\begin{itemize}
+    \item $\lnot$: Represents ``not''. $\lnot A$ is read ``not $A$'' or ``negation of $A$''.
+    \item $\land$: Represents ``and''. $A \rightarrow B$ is read ``$A$ and $B$''.
+    \item $\lor$: Represents ``or''. $A \lor B$ is read ``$A$ or $B$''.
+    \item $\rightarrow$: Represent ``if''. $A \land B$ is read ``$A$ implies $B$'' or ``if $A$ then $B$''.
+    \item $\leftrightarrow$: Represent ``necessary and sufficient condition''. $A \leftrightarrow B$ is equivalet to $A \rightarrow B$ and $B \rightarrow A$.
+    \item $\forall$: The universal quantifier; represents ``for all''. $\forall x \in D$ is read ``for all $x$ in $D$.''
+    \item $\exists$: The existential quantifier; represents ``for some'' or ``there exists''. $\exists x \in D$ is read ``there exists an $x$ in $D$''.
+    \item $\exists!$: Represent ``there exists unique''. 
+\end{itemize}
+\begin{definition}
+    A statement that is always false called is a \emph{contradiction}. The classic contradiction is $p \land \lnot p$.
+\end{definition}
+\begin{definition}
+    A statement that is always true is called a \emph{tautology}. The classic tautology is $p \lor \lnot p$.
+\end{definition}
+\begin{theorem} DeMorgan's Law: \\
+    $\lnot (p \land q) \iff \lnot p \lor \lnot q$ and
+    $\lnot (p \lor q) \iff \lnot p \land \lnot q$
+\end{theorem}
+\begin{theorem} General DeMorgan's Law: \\
+    $\lnot(p_1 \land p_2 \land \dots \land p_n) \iff (\lnot p_1 \lor \lnot p_2 \lor \dots \lor p_n)$ \\
+    $\lnot(p_1 \lor p_2 \lor  \dots \lor  p_n) \iff (\lnot p_1 \land \lnot p_2 \land \dots \land p_n)$ \\
+\end{theorem}
+\begin{theorem} Reduction ad absurdum,
+    $(p \rightarrow q) \iff ((p \land \lnot q) \rightarrow c)$
+\end{theorem}
+\begin{theorem} Modus ponens,
+    $((p \leftarrow q) \land p) \implies q$
+\end{theorem}
+\begin{theorem} Modus tollens,
+    $((p \rightarrow q) \land \lnot q) $
+\end{theorem}
+\begin{theorem} Law of syllogism,
+    $((p \rightarrow q)\land(q \rightarrow r)) \implies (p \rightarrow r)$
+\end{theorem}
+\begin{theorem} Law of disjunctive syllogism,
+    $((p \lor q) \land \lnot p) \implies q$
+\end{theorem}
+\begin{theorem}
+    $\lnot(\forall x \in D, p(x)) \iff \exists x \in D, \lnot p(x)$
 \end{theorem}
 \end{document}
