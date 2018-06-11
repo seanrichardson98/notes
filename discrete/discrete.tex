@@ -138,7 +138,7 @@ The symbols:
 \begin{theorem}
     $\lnot(\forall x \in D, p(x)) \iff \exists x \in D, \lnot p(x)$
 \end{theorem}
-\section{Informal Set Theory}
+\section{Set Theory}
 There exists objects. Objects can be ``in'', ``belong to'' or be an``element'' of a set. If an object is in a set $S$, we say $a \in S$. If not, we say $a \notin S$. We can describe the elements of a set $S$ in the folliwing notation. $S = \{f \vert \text{rule that $f$ must obey} \}$.
 \begin{definition}
     Let $A$ and $B$ be sets. If $\forall x \in A, x \in B$ then $A$ is a \emph{subset} of $B$, denoted $A \subseteq B$.
@@ -192,4 +192,21 @@ The empty set is unique.
 \begin{theorem}
     Let $A$ and $B$ be sets. Then $\myabs{A \cup B} = \myabs{A} + \myabs{B} - \myabs{A \cap B}$.
 \end{theorem}
+\begin{theorem} 
+    Let $A$ and $B$ be sets \\ Associative laws:\\
+    $(A \cup B) \cup C = A \cup (B \cup C)$ and 
+    $(A \cap B) \cap C = A \cap (B \cap C)$ \\
+    Distributive laws:\\
+    $(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$ and
+    $(A \cap B) \cap C = (A \cup C) \cap (B \cup C)$
+\end{theorem}
+\begin{definition}
+    Let $A$ and $B$ be sets. The \emph{relative complement} of $B$ \emph{in} $A$, denoted $A \setminus B$ or $A - B$. Its defined as $A \setminus B = \{ x \vert x \in A \text{ and } x \notin B \}$.
+\end{definition}
+\begin{definition}
+    Let $A$ be a set. The \emph{complement} of $A$, denoted $\overline{A}$ is defined as $\overline{A} = \{ x \in \mathcal{U} \vert x \notin A \}$.
+\end{definition}
+\begin{definition} (DeMorgan's Laws) Let $A$ and $B$ be sets. \\
+    Then $\overline{A \cup B} = \overline{A} \cap \overline{B}$ and $\overline{A \cap B} = \overline{A} \cup \overline{B}$
+\end{definition}
 \end{document}
