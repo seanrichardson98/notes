@@ -55,10 +55,10 @@ Combinatorics studies methods of counting things.
     Consider some task $T$. If $T$ can be broken down into necessary subtasks $t_1,t_2,\dots,t_n$ which can be accomplished in $b_1,b_2,\dots,b_n$ ways, then $T$ can be done in $\prod b_k$ ways.
 \end{theorem}
 \begin{theorem}
-    An arrangment of $n$ objects is called a ``permutaion''. There are $n!$ possible permutations.
+    An arrangement of $n$ objects is called a ``permutation''. There are $n!$ possible permutations.
 \end{theorem}
 \begin{theorem}
-    An arrangment of $r$ objects out of a collection of $n$ objects is called an ``r-permutation''. This can be done in $P(n,r)= {}_{n}P_r = \frac{n!}{(n-r)!}$ ways.
+    An arrangement of $r$ objects out of a collection of $n$ objects is called an ``r-permutation''. This can be done in $P(n,r)= {}_{n}P_r = \frac{n!}{(n-r)!}$ ways.
 \end{theorem}
 \begin{theorem}
     An r-combination is how many combinations of $r$ objects (ignoring order) you can choose from $n$ objects. There are $C(n,r)={}_{n}C_r=(\begin{smallmatrix}n \\ r \end{smallmatrix}) = \frac{n!}{r!(n-r)!}$ ways.
@@ -92,12 +92,18 @@ We will now try to determine how many ways $n$ balls can be put in to $r$ boxes.
 \begin{definition}
     Let $n > 0$ and $p > 1$ be integers. $p$ is \emph{prime} if ``$n\vert p$'' is only true if $n=p$ or $n=1$.
 \end{definition}
-There is a useful mathematical proof technique called \emph{induction}. Induction operates in two parts. If you want to proove some statement involving an arbitrary $n$ is true, you first proove it is true for the specific case $n=c$ where you choose $c$. Secondly, you show that if the statement holds for $n=k$, then it holds for $n=k+1$. Then, you are done. By the first part, you have prooved the case $n=c$. Then, combining this with the second part of the prood, you know it holds for $n=c+1$,$n=c+2$,$n=\dots$ A formal inductive proof has the following form:\\
+There is a useful mathematical proof technique called \emph{induction}.
+Induction operates in two parts. If you want to prove some statement
+involving an arbitrary $n$ is true, you first prove it is true for the
+specific case $n=c$ where you choose $c$. Secondly, you show that if the
+statement holds for $n=k$, then it holds for $n=k+1$. Then, you are done.
+By the first part, you have proved the case $n=c$. Then, combining this
+with the second part of the proof, you know it holds for $n=c+1$,$n=c+2$,$n=\dots$ A formal inductive proof has the following form:\\
 \underline{Inductive Proof Structure:} \\
     We proceed by the method of Induction, \\
     For the base case of $n=0$, \emph{prove the statement holds for $n=0$} \\
-    Now we make the inductive hypotheseis that \emph{the statement holds for arbitrary $k$}. \\
-    Now we proceed to proove the inductive step \emph{proove that if statement holds for $k$, it holds for $k+1$}. \\
+    Now we make the inductive hypothesis that \emph{the statement holds for arbitrary $k$}. \\
+    Now we proceed to prove the inductive step \emph{prove that if statement holds for $k$, it holds for $k+1$}. \\
     Thus by induction \emph{the statement holds}. \qed
 \section{Logic}
 The symbols:
@@ -106,7 +112,8 @@ The symbols:
     \item $\land$: Represents ``and''. $A \rightarrow B$ is read ``$A$ and $B$''.
     \item $\lor$: Represents ``or''. $A \lor B$ is read ``$A$ or $B$''.
     \item $\rightarrow$: Represent ``if''. $A \land B$ is read ``$A$ implies $B$'' or ``if $A$ then $B$''.
-    \item $\leftrightarrow$: Represent ``necessary and sufficient condition''. $A \leftrightarrow B$ is equivalet to $A \rightarrow B$ and $B \rightarrow A$.
+    \item $\leftrightarrow$: Represent ``necessary and sufficient
+        condition''. $A \leftrightarrow B$ is equivalent to $A \rightarrow B$ and $B \rightarrow A$.
     \item $\forall$: The universal quantifier; represents ``for all''. $\forall x \in D$ is read ``for all $x$ in $D$.''
     \item $\exists$: The existential quantifier; represents ``for some'' or ``there exists''. $\exists x \in D$ is read ``there exists an $x$ in $D$''.
     \item $\exists!$: Represent ``there exists unique''. 
@@ -144,7 +151,10 @@ The symbols:
     $\lnot(\forall x \in D, p(x)) \iff \exists x \in D, \lnot p(x)$
 \end{theorem}
 \section{Set Theory}
-There exists objects. Objects can be ``in'', ``belong to'' or be an``element'' of a set. If an object is in a set $S$, we say $a \in S$. If not, we say $a \notin S$. We can describe the elements of a set $S$ in the folliwing notation. $S = \{f \vert \text{rule that $f$ must obey} \}$.
+There exists objects. Objects can be ``in'', ``belong to'' or be
+an``element'' of a set. If an object is in a set $S$, we say $a \in S$. If
+not, we say $a \notin S$. We can describe the elements of a set $S$ in the
+following notation. $S = \{f \vert \text{rule that $f$ must obey} \}$.
 \begin{definition}
     Let $A$ and $B$ be sets. If $\forall x \in A, x \in B$ then $A$ is a \emph{subset} of $B$, denoted $A \subseteq B$.
 \end{definition}
@@ -167,7 +177,8 @@ Let $A$ and $B$ be sets. If $A \subseteq B$ but $A \neq B$ then $A$ is a \emph{p
 The empty set is unique.
 \end{theorem}
 \begin{definition}
-    Let $n$ be a nonnegative integer. A set containing $n$ distinct elements is called an \emph{n-set}.
+    Let $n$ be a nonnegative integer. A set containing $n$ distinct
+    elements is called an \emph{n-set}. 
 \end{definition}
 \begin{definition}
     Let $A$ be an n-set. $n$ is called the \emph{cardinality} of $A$ or the \emph{order} of $A$, denoted $\vert A \vert = n$
@@ -179,7 +190,8 @@ The empty set is unique.
     There are $(\begin{smallmatrix} n\\r \end{smallmatrix}$). $r$-subsets of and $n$-set.
 \end{theorem}
 \begin{definition}
-    Let $A$ be a set. The set of all subsets of $A$ is called the \emph{power set of $A$} dentoted $\mathcal{P}(A)$.
+    Let $A$ be a set. The set of all subsets of $A$ is called the
+    \emph{power set of $A$} denoted $\mathcal{P}(A)$.
 \end{definition}
 \begin{theorem}
     For any nonnegative integer $n$ there are $2^n$ subsets of an $n$-set $A$. So $\myabs{\mathcal{P}(A)} = 2^n$
@@ -272,7 +284,7 @@ This section is centered around the patterns of Pascal's Triangle and the relate
 \end{subfigure}
 \end{figure}
 First, we need some tools to further investigate Pascal's Triangle
-\begin{theorem}[Pascal's Identity] Each entry in Pascal's Triangle is exactly equal to the sum of the entry up and to the right along with the entry up and to the left. This is due to the folliwing equality,
+\begin{theorem}[Pascal's Identity] Each entry in Pascal's Triangle is exactly equal to the sum of the entry up and to the right along with the entry up and to the left. This is due to the following equality,
     $
         \begin{pmatrix} n \\ k \end{pmatrix}
         +\begin{pmatrix} n \\ k+1 \end{pmatrix}
@@ -283,7 +295,8 @@ First, we need some tools to further investigate Pascal's Triangle
     The quantity $(\begin{smallmatrix} n+1 \\ k+1 \end{smallmatrix})$ represents the number of ways to make committees of size $k+1$ from $n+1$ people including you. Each committee either includes you or doesn't. $(\begin{smallmatrix} n \\ k \end{smallmatrix})$ include you and $(\begin{smallmatrix} n \\ k+1 \end{smallmatrix})$ do not. Therefore, the equality holds.
 \end{proof}
 \begin{theorem}
-Each entry in Pascal's Triangle describes precisely how many paths there is from the top of Pascal's Triange there is to that entry.
+Each entry in Pascal's Triangle describes precisely how many paths there is
+from the top of Pascal's Triangle there is to that entry.
 \end{theorem}
 \begin{proof}
 /*Add inductive proof*/
@@ -326,9 +339,14 @@ We begin,
 We have shown our inductive step and thus conclude our proof by induction.\\
 \end{proof}
 \begin{proof}[Proof 2] A more intuitive proof of the Binomial Theorem.\\
-    Consider ${(x+y)}^n=(x+y)(x+y)\cdots(x+y)$ Multiplying this out is of the form $(xx\cdots xx) + (xx\cdots xy) + \cdots + (yy \cdots yy)$ iterating through all orderings of $x$'s and $y$'s. Every ordering with $k$ amount of $y$'s contributes $1$ to the $x^{n-k}y^k$ coefficient. There are $(\begin{smallmatrix} n \\ k \end{smallmatrix})$ ways to contribute to $x^{n-k}y^k$ terms, so the coeffient of this term is $(\begin{smallmatrix} n \\ k \end{smallmatrix})$. It follows that the full expansion is 
+    Consider ${(x+y)}^n=(x+y)(x+y)\cdots(x+y)$ Multiplying this out is of
+    the form $(xx\cdots xx) + (xx\cdots xy) + \cdots + (yy \cdots yy)$
+    iterating through all orderings of $x$'s and $y$'s. Every ordering with
+    $k$ amount of $y$'s contributes $1$ to the $x^{n-k}y^k$ coefficient.
+    There are $(\begin{smallmatrix} n \\ k \end{smallmatrix})$ ways to
+    contribute to $x^{n-k}y^k$ terms, so the coefficient of this term is $(\begin{smallmatrix} n \\ k \end{smallmatrix})$. It follows that the full expansion is 
         $(x+y)^n = \sum_{k=0}^n
-        (\begin{smallmatrix} n \\ k \end{smallmatrix})x^{n-k}y^k$. Prooving the Binomial Theorem.
+        (\begin{smallmatrix} n \\ k \end{smallmatrix})x^{n-k}y^k$. Proving the Binomial Theorem.
 \begin{corollary}
 The case $x=y=1$ in the binomial theorem shows
 \begin{equation*}
@@ -345,7 +363,7 @@ And the case of $x=-1$, $y=1$ in the binomial theorem shows that
 \end{proof}
     \marginpar{Add Intuitive proof}
 \begin{theorem}
-    The sum of some diaganol down and to the right on Pascal's Triangle is described by the term down and to the left of the lowest term in the diaganol. Or, 
+    The sum of some diagonal down and to the right on Pascal's Triangle is described by the term down and to the left of the lowest term in the diagonal. Or, 
     \begin{equation*}
         \begin{pmatrix} k    \\ 0 \end{pmatrix} +
         \begin{pmatrix} k+1  \\ 1 \end{pmatrix} +
@@ -374,7 +392,7 @@ And the case of $x=-1$, $y=1$ in the binomial theorem shows that
     Consider ${(x_1+x_2+\cdots +x_k)}^n$, which expands to the sum of every ordering of $x_1$'s, $x_2$'s, \ldots, $x_k$'s. The amount of orderings that contribute to an arbitrary $x_1^{a_1} + x_2^{a_2} + \cdots x_k^{a_k}$ is $(\begin{smallmatrix} n!\\a_1! \end{smallmatrix})(\begin{smallmatrix} (n-a_1)!\\a_2 \end{smallmatrix})(\begin{smallmatrix} n-(a_1+\cdots+a_{k-1})\\a_k \end{smallmatrix}) = (\begin{smallmatrix} n \\ a_1,a_2,\cdots,a_k \end{smallmatrix})$. It then follows that, \\
         ${(x_1+x_2+\cdots+x_k)}^{n}=\sum_{\substack{a_1,a_2,\cdots,a_k \geq 0 \\ a_1+a_2+\cdots+a_k=n}}
         \begin{smallmatrix} n \\ a_1,a_2,\cdots,a_k \end{smallmatrix}
-        x_1^{a_1} + x_2^{a_2} + \cdots x_k^{a_k}$ which prooves the Multinomial Theorem.
+        x_1^{a_1} + x_2^{a_2} + \cdots x_k^{a_k}$ which proves the Multinomial Theorem.
 \end{proof}
 \subsection{Probability}
 \begin{definition}
@@ -384,7 +402,7 @@ And the case of $x=-1$, $y=1$ in the binomial theorem shows that
     The set of outcomes of an experiment is called the \emph{sample space} of the experiment, denoted $S$.
 \end{definition}
 \begin{definition}
-    An \emph{event} is a subspace of the the sample space.
+    An \emph{event} is a subspace of the sample space.
 \end{definition}
 \begin{definition}
     Let $E$ be an event in $S$. Then, the \emph{probability} of $E$ is $P(E)=\frac{\myabs{E}}{\myabs{S}}$.
@@ -409,7 +427,7 @@ And the case of $x=-1$, $y=1$ in the binomial theorem shows that
     Let $A$ and $B$ be finite sets. The number of relations from $A$ to $B$ is $2^{\abs{A}\abs{B}}$.
 \end{theorem}
 \begin{proof}
-    Let $A$ and $B$ be sets. By Defintion~\ref{def:relation}, a relation is a subset any $A \times B$. The number of relations is the number of ways to create a relation, which is the number of subsets of $A \times B$. By Theorem~\ref{thm:power_combos}, this is equivalent to $2^{\abs{A \times B}}=2^{\abs{A}\abs{B}}$.
+    Let $A$ and $B$ be sets. By Definition~\ref{def:relation}, a relation is a subset any $A \times B$. The number of relations is the number of ways to create a relation, which is the number of subsets of $A \times B$. By Theorem~\ref{thm:power_combos}, this is equivalent to $2^{\abs{A \times B}}=2^{\abs{A}\abs{B}}$.
 \end{proof}
 \begin{definition}
     Let $R$ be a relation from $A$ to $B$. Then the set $R^{-1}=\{(b,a) \mid (a,b)\in R \}$ is the \emph{inverse relation} of $R$.
@@ -453,10 +471,13 @@ If an equivalence relation represents a bunch of ``bags''. This is saying that a
     The pieces a partition splits a set $A$ into can describe the ``bags'' of an equivalence relation.
 \end{trans}
 \begin{proof}
-We will show the relation $R$ is relflexive, symmetric, transitive.
+We will show the relation $R$ is reflexive, symmetric, transitive.
 \begin{itemize}
-    \item Consider an arbitrary $a \in A$. Assume $\lnot aRa$. This implies $\lnot(a \in A_i \leftrightarrow a \in A_i) \Rightarrow (a \in A) \land (a \notin A)$, a contradiction. So, we conclude $aRa$. Because $a$ is arbitrary, we have $\forall a \in A, aRa$. And we have thus concluded relflexivity.
-    \item Assume $aRb$. This implies $(a \in A_i) \leftrightarrow (b \in A_i) \Rightarrow (b \in A_i) \leftrightarrow (a \in A_i) \Rightarrow bRa$. So, we conclude $aRb \rightarrow bRa$, confirming symmetricity.
+    \item Consider an arbitrary $a \in A$. Assume $\lnot aRa$. This implies $\lnot(a \in A_i \leftrightarrow a \in A_i) \Rightarrow (a \in A) \land (a \notin A)$, a contradiction. So, we conclude $aRa$. Because $a$ is arbitrary, we have $\forall a \in A, aRa$. And we have thus concluded reflexivity.
+    \item Assume $aRb$. This implies $(a \in A_i) \leftrightarrow (b \in
+        A_i) \Rightarrow (b \in A_i) \leftrightarrow (a \in A_i)
+        \Rightarrow bRa$. So, we conclude $aRb \rightarrow bRa$, confirming
+        symmetry.
     \item Assume $aRb \land aRc$. This implies $(a \in A_i \leftrightarrow b \in A_i) \land (a \in A_i \leftrightarrow c \in A_i) \Rightarrow a \in A_i \leftrightarrow c \in A_i \Rightarrow aRc$, confirming transitivity.
 \end{itemize}
 $R$ is reflexive, symmetric, and transitive. So, $R$ is an equivalence relation.

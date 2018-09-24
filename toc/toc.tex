@@ -1,0 +1,74 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\usepackage{my_notes}
+\usepackage{my_math}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{just}{\textit{Justification.}}{}
+\newenvironment{trans}{\textit{Translation.}}{}
+
+\title{Theory of Computation}
+\author{Sean Richardson}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\begin{definition}[Alphabet]
+An \emph{alphabet} is a non-empty set. The members of an alphabet are
+\emph{symbols}.
+\end{definition}
+
+\begin{definition}[String]
+    A \emph{string} is a sequence of symbols from the alphabet. $\epsilon$
+    is the empty string. For a string $w$ The length of the string sequence
+    is denoted $\myabs{w}$
+\end{definition}
+
+\begin{definition}[Finite Automaton]
+    Formally, a \emph{finite automaton} is a 5-tuple
+    $(Q,\Sigma,\delta,q_0,F)$, where
+    \begin{itemize}
+        \item $Q$ is the finite set called the \emph{states}.
+        \item $\Sigma$ is a finite set called alphabet.
+        \item $\delta: Q \times \Sigma \rightarrow Q$ is the transition
+            function.
+        \item $q_0 \in Q$ is the start state.
+        \item $F \subseteq$ is a set of accept states.
+    \end{itemize}
+\end{definition}
+
+/*State diagram*/
+
+\begin{definition}
+    Let $M= (Q,\Sigma,\delta,q_0,F)$. If $M$ takes the string
+    $w=w_1w_2\dots w_n$, then $M$ \emph{accepts} $w$ if a sequence of states
+    ${r_0,r_1,\dots r_n}$ exists such that:
+    \begin{itemize}
+        \item $r_0 = q_0$
+        \item $\delta (r_i,w_{i+1})=r_{i+1}$ for $0 \leq i \leq n-1$
+        \item $r_n \in F$
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    For a finite automaton $M$, we say \emph{$M$ recognizes language $A$}
+    if $A = \{ w \mid M \text{ accepts } w \}$.
+\end{definition}
+
+\begin{definition}[Regular Language]
+    A language is called a \emph{regular language} if some finite automaton
+    recognizes it.
+\end{definition}
+
+\end{document}

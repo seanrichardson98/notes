@@ -10,3 +10,9 @@ discrete/discrete.fls
 discrete/discrete.log
 discrete/discrete.synctex.gz
 discrete/texput.log
+topology/*
+!topology/topology.tex
+!topology/topology.pdf
+toc/*
+!toc/toc.tex
+!toc/toc.pdf
