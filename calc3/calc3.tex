@@ -1,0 +1,135 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{cancel}
+\usepackage{subfigure}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{my_notes}
+\usepackage{my_math}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{just}{\textit{Justification.}}{}
+\newenvironment{trans}{\textit{Translation.}}{}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+\title{Calculus III}
+\author{Sean Richardson}
+\date{\today}
+\maketitle
+\tableofcontents
+
+\section{2D and 3D space}
+\subsection{Cartesian Coordinates}
+\subsection{Contour Maps}
+\subsection{Quadratic Surfaces}
+\begin{align}
+    f(x,y) &= x^2+y^2
+    \tag{Paraboloid}\\
+    f(x,y) &= x^2-y^2
+    \tag{Saddle}\\
+    f(x,y) &= xy
+    \tag{Saddle}
+\end{align}
+\begin{theorem}
+    An equation of the form $f(x,y) = ax^2+bxy+cy^2$ is a saddle if
+    $b^2-4ac > 0$ and a bowl if $b^2-4ac <0 $.
+\end{theorem}
+\subsection{Vector Fields}
+\begin{definition}[Vector Field]
+    A vector field is some mapping $V: S \to \mathbb{R}^n$ with $S \subset
+    \mathbb{R}^n$. Visually, we represent vector fields by drawing the
+    vector of the output centered at the input point.
+    /*Visual vector field*/
+\end{definition}
+\subsection{Transformations}
+\begin{definition}[Transformation]
+    A transformation is a mapping $T:\mathbb{R}^n\to\mathbb{R}^m$. We
+    represent this mapping $\mathbf{x} \to \mathbf{y}$ with an equation of the form 
+    $$(y^1,\dots,y^m) = T(x^1,\dots,x^n)=(T_1(x^i),\dots,T_m(x^i))$$
+\end{definition}
+Note that \emph{linear-ish} transformations can be written 
+\begin{align*}
+ \begin{pmatrix} y^1 \\ \vdots \\ y^m \end{pmatrix}
+ &=\begin{pmatrix} T_1(x^1,\dots,x^n) \\ \vdots \\ T_m(x^1,\dots,x^n) \end{pmatrix}
+ = \begin{pmatrix} b^1 + \sum a^1_i x^i \\ \vdots \\ b^m + \sum a^m_i x^i \end{pmatrix}
+ = \begin{pmatrix} b^1 \\ \vdots \\ b^m \end{pmatrix}
+ + \sum{\begin{pmatrix} a^1_i \\ \vdots \\ a^m_i \end{pmatrix}x^i} \\
+ &= \begin{pmatrix} b^1 \\ \vdots \\ b^m \end{pmatrix}
+ + \begin{pmatrix} a^1_1 & \dots & a^1_n \\ \vdots & \ddots & \vdots \\
+ a^m_1 & \dots & a^m_n \end{pmatrix}
+ \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}
+\end{align*}
+
+\subsection{Vector Products}
+\begin{theorem}
+    For vectors $\mathbf{u},\mathbf{v} \in \mathbb{R}^n$ separated by some
+    angle $\theta$, we have
+    \begin{equation*}
+        \sum{u^i v^i} = \mymag{\mathbf{u}}\mymag{\mathbf{v}}\cos(\theta)
+    \end{equation*}
+\end{theorem}
+\begin{definition}[Dot Product]
+    The previous equivalency is quite useful, so we define the \emph{dot
+    product} by the mapping $\boldsymbol{\cdot} : \mathbb{R}^n \times
+    \mathbb{R}^n \to \mathbb{R}$ such that
+    \begin{equation*}
+        u \cdot v = \sum{u^i v^i} = \mymag{\mathbf{u}}\mymag{\mathbf{v}}\cos(\theta)
+    \end{equation*}
+    Where $\mathbf{u},\mathbf{v} \in \mathbb{R}^n$ separated by angle
+    $\theta$.
+\end{definition}
+\begin{definition}[Cross Product]
+    The \emph{cross product} is some mapping $\times : \mathbb{R}^3 \times
+    \mathbb{R}^3 \to \mathbb{R}^3$ such that for $\mathbf{a,b} \in
+    \mathbb{R}^3$, $a = \myvec{a_x,a_y,a_z}$ and $v = \myvec{b_x,b_y,b_z}$
+    we have
+    \begin{equation*}
+        a \times b = \myvec{(a_y b_z - a_z b_y), (a_z b_x - a_x b_z), (a_x
+        b_y - a_y b_x)}.
+    \end{equation*}
+\end{definition}
+By abuse of notation, we can write the cross product as:
+\begin{equation*}
+    a \times b = \det
+    \begin{pmatrix} 
+    \mathbf{i}       & \mathbf{j}   & \mathbf{k}   \\
+    a_x              & a_y          & a_z          \\
+    b_x              & b_y          & b_z          \\
+    \end{pmatrix}
+\end{equation*}
+
+\section{???}
+\subsection{Curvilinear Coordinates}
+\subsubsection{Polar Coordinates}
+\begin{definition}
+Polar coordinates are defined by a transformation from $(r, \theta)$ space
+to $(x,y)$ space. \\
+Below are transformations $T: (r, \theta) \to (x,y)$ and $T^{-1}: (x,y) \to
+(r,\theta)$
+\begin{align*}
+    T&: (x,y) = (r\cos(\theta),r\sin(\theta)) \\
+    T^{-1}&: (r,\theta) = (\sqrt{x^2+y^2},\arctan(y/x)[+\pi?])
+\end{align*}
+Note: In $T^{-1}, $
+\end{definition}
+\subsubsection{Cylindrical Coordinates}
+\subsubsection{Spherical Coordinates}
+\end{document}
