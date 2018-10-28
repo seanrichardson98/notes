@@ -29,6 +29,8 @@
 
 \setlength\parindent{0pt}
 
+\newcommand{\pder}[2]{\frac{\partial{#1}}{\partial{#2}}}
+
 \begin{document}
 \title{Calculus III}
 \author{Sean Richardson}
@@ -78,6 +80,11 @@ Note that \emph{linear-ish} transformations can be written
  \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}
 \end{align*}
 
+\subsection{Projection}
+\begin{theorem}
+    $$\mathbf{a_H} = \left(\frac{\mathbf{a}
+\boldsymbol{\cdot}\mathbf{b}}{\mymag{\mathbf{b}}^2}\right)\mathbf{b}$$
+\end{theorem}
 \subsection{Vector Products}
 \begin{theorem}
     For vectors $\mathbf{u},\mathbf{v} \in \mathbb{R}^n$ separated by some
@@ -115,11 +122,46 @@ By abuse of notation, we can write the cross product as:
     b_x              & b_y          & b_z          \\
     \end{pmatrix}
 \end{equation*}
+Note that:
+\begin{itemize}
+    \item $\mymag{\mathbf{a} \times \mathbf{b}} = \text{Area of
+parallelogram spanned by } \mathbf{a} \text{ and } \mathbf{b}$.
+    \item $\mathbf{a} \times \mathbf{b}$ point in a direction
+        orthogonal to both $\mathbf{a}$ and $\mathbf{b}$.
+\end{itemize}
+\subsection{Volumes}
+\begin{theorem}[Volumes of Parallelotopes]
+Let $V(\mathbf{x}^1,\dots,\mathbf{x}^n) = $ Volume of the paralleletope
+spanned by $\mathbf{x}^1,\dots,\mathbf{x}^n$.
+Then,
+$$V(\mathbf{x}^1,\dots,\mathbf{x}^n) = \sqrt{\det
+\begin{pmatrix}
+    \mathbf{x}^1 \cdot \mathbf{x}^1 & \cdots & \mathbf{x}^1 \cdot
+    \mathbf{x}^n \\
+    \vdots & \ddots & \vdots \\
+    \mathbf{x}^n \cdot \mathbf{x}^1 & \cdots & \mathbf{x}^n \cdot
+    \mathbf{x}^n \\
+\end{pmatrix}}
+$$
+Note if we call the matrix $g$ we have $g_{ij} = \mathbf{x^i} \cdot
+\mathbf{x^j}$.\\
+If we are working in $\mathbb{R}^n$ and $\mathbf{x^i} = \langle x^i_1,
+\dots, x^i_n \rangle$ then,
+$$V(\mathbf{x}^1,\dots,\mathbf{x}^n) = \left\vert\det
+\begin{pmatrix}
+    x_1^1  & \cdots & x_n^1 \\
+    \vdots & \ddots & \vdots \\
+    x_1^n  & \cdots & x_n^n \\
 
+
+\end{pmatrix}\right\vert
+$$
+
+\end{theorem}
 \section{???}
 \subsection{Curvilinear Coordinates}
 \subsubsection{Polar Coordinates}
-\begin{definition}
+\begin{definition}[Polar Coordinates]
 Polar coordinates are defined by a transformation from $(r, \theta)$ space
 to $(x,y)$ space. \\
 Below are transformations $T: (r, \theta) \to (x,y)$ and $T^{-1}: (x,y) \to
@@ -128,8 +170,102 @@ Below are transformations $T: (r, \theta) \to (x,y)$ and $T^{-1}: (x,y) \to
     T&: (x,y) = (r\cos(\theta),r\sin(\theta)) \\
     T^{-1}&: (r,\theta) = (\sqrt{x^2+y^2},\arctan(y/x)[+\pi?])
 \end{align*}
-Note: In $T^{-1}, $
+Note: In $T^{-1}$ you must add $\pi$ radians to $\theta$ if $x<0$. 
+
 \end{definition}
 \subsubsection{Cylindrical Coordinates}
+\begin{definition}[Cylindrical Coordinates]
+Cylindrical coordinates are defined through a transformation from $(r,
+\theta, z)$ space to $(x,y,z)$ space. 
+Below are transformations $T: (r, \theta,z) \to (x,y,z)$ and $T^{-1}:
+(x,y,z) \to (r,\theta,z)$
+\begin{align*}
+    T&: (x,y,z) = (r\cos(\theta),r\sin(\theta),z) \\
+    T^{-1}&: (r,\theta,z) = (\sqrt{x^2+y^2},\arctan(y/x)[+\pi?],z)
+\end{align*}
+Note: In $T^{-1}$ you must add $\pi$ radians to $\theta$ if $x<0$. 
+\end{definition}
 \subsubsection{Spherical Coordinates}
+Spherical coordinates are defined through a transformation from
+$(r,\theta,\phi)$ space to $(x,y,z)$ space.
+Below are transformations $T: (r, \theta, \phi) \to (x,y,z)$ and $T^{-1}:
+(x,y,z) \to (r,\theta, \phi)$
+\begin{align*}
+    T&: (x,y,z) =
+    (r\cos\theta\sin\phi,r\cos\theta\sin\phi,r\cos\phi)\\
+    T^{-1}&: (x,y,z) =
+    (\sqrt{x^2+y^2+z^2},\arctan(y/x)[+\pi?],\arccos(\frac{z}{\sqrt{x^2+y^2+z^2}}))
+\end{align*}
+\subsection{Partial Vectors}
+\begin{definition}[Partial Vector Field]
+Consider some transformation $T: \mathbb{R}^n \to \mathbb{R}^m$ given by
+$(y^1,\dots,y^m) = T(x^1, \dots, x^n)$. We then define the partial vector
+field for some coordinate $x^i$ in $y$ space, denoted $\partial_{x^i}$, by
+$$ \partial_{x_i} = \left\langle \pder{y^1}{x^i}, \dots, \pder{y^m}{x^i} \right\rangle$$
+Note that $\partial_{x_i}$ points in the direction of increase of $x_i$ at
+any location $\mathbf{y}$.
+\end{definition}
+\subsection{Transformation Approximation}
+\subsubsection{Linear}
+\begin{definition}[Jacobi Matrix]
+    Consider some transformation $T: \mathbb{R}^n \to \mathbb{R}^m$ given by
+    $(y^1,\dots,y^n) = T(x^1, \dots, x^m)$.
+    We define the Jacobi Matrix $DT$ to be an $n \times m$ matrix such that
+    $DT_{ij} = \pder{y^j}{x^i}$ Or,
+    $$DT =
+    \begin{pmatrix}
+    \pder{y^1}{x^1} & \cdots & \pder{y^1}{x^n}\\
+    \vdots          & \ddots & \vdots \\
+    \pder{y^m}{x^1} & \cdots & \pder{y^m}{x^n}
+    \end{pmatrix}
+    $$
+\end{definition}
+\begin{theorem}
+    If we evaluate $DT$ at a specific point $\mathbf{p}$ in $x$ space,
+    denoted $DT \vert_{\mathbf{p}}$, then this matrix is a linear
+    approximation of $T$ at $\mathbf{p}$. So if 
+    $\mathbf{\Delta x} = \mathbf{x} - \mathbf{p}$ 
+    and $\mathbf{\Delta y} = T(\mathbf{x}) - T(\mathbf{p})$ then,
+    $$
+    \mathbf{\Delta y} \approx DT\vert_{\mathbf{p}} \cdot \mathbf{\Delta x}
+    $$
+\end{theorem}
+\subsubsection{Quadratic}
+\begin{definition}[Hessian Matrix]
+    Consider some transformation $f: \mathbb{R}^n \to \mathbb{R}$ given by 
+    $z = f(x^1,\dots,x^n)$. Then, we define the Hessian Matrix $Hessf$ to
+    an $n \times n$ matrix given by $Hessf_{ij} = \pder{f}{x^ix^j}$.
+    Or,
+    $$
+    Hessf =
+    \begin{pmatrix}
+        \pder{f}{x^1x^1} & \dots  & \pder{f}{x^1x^n} \\
+        \vdots           & \ddots & \vdots           \\
+        \pder{f}{x^nx^1} & \cdots & \pder{f}{x^nx^n}  
+    \end{pmatrix}
+    $$
+\end{definition}
+\begin{theorem}[Quadratic Approximation]
+    Take some point $\mathbf{p}$ in $x$ space to center our approximation
+    about. Then if we take $\mathbf{\Delta x} = \mathbf{x} - \mathbf{p}$
+    and $\Delta y = f(\mathbf{x}) - f(\mathbf{p})$ we have,
+    $$
+    \Delta y \approx Df\vert_{\mathbf{p}} \cdot \mathbf{\Delta x}
+    + \frac{1}{2} \cdot \mathbf{{\Delta x}^T} \cdot Hessf\vert_{\mathbf{p}}
+    \cdot \mathbf{\Delta x}
+    $$
+\end{theorem}
+\subsection{Chain Rule}
+
+\subsection{Optimization}
+
+\section{Calculus}
+\subsection{Line Integral}
+\begin{theorem}
+    Let $\mathcal{L} = (x^1(t), \dots, x^n(t))$ describe some line in
+    $\mathbb{R}^n$. Then, the length of the line between between $t=t_i$
+    and $t=t_f$ is given by
+    $$\int_{t_i}^{t_f} \mymag{\partial_t}dt$$
+    If we assign a density $\rho$
+\end{theorem}
 \end{document}

@@ -494,7 +494,7 @@ $B$ is often notated by $F: A \rightarrow B$.
     Let $A$ and $B$ be finite sets. There are $\myabs{B}^{\myabs{A}}$
     functions from $A$ to $B$.
 \end{theorem}
-\begin{definition}(Domain and Range)
+\begin{definition}[Domain and Range]
     Let $F$ be a function from a set $A$ to a set $B$. The set of all first
     coordinates of ordered pairs in $F$ is the \emph{domain} of $F$. ($A$
     is the domain). The set of all second coordinate ordered pairs in $F$
@@ -502,7 +502,37 @@ $B$ is often notated by $F: A \rightarrow B$.
     If $F(a) = b$, we say $b$ is the \emph{image} of $a$ under $F$ and $a$
     is the \emph{pre-image} of $b$.
 \end{definition}
-\begin{definition}
-
+\begin{definition}[one-to-one]
+Let $A$ and $B$ be sets and $F: A \to B$ a function. If $\forall x_1,x_2
+\in A$ we have $x_1 \neq x_2 \implies F(x_1) \neq F(x_2)$, then $F$ is a
+\emph{one-to-one} function or an \emph{injection}.
+\end{definition}
+\begin{theorem}
+    Let $A$ and $B$ be finite sets. There are
+    $\frac{\myabs{B}!}{(\mymag{B}-\mymag{A})!}$ one-to-one functions from
+    $A$ to $B$.
+\end{theorem}
+\begin{definition}[Onto function]
+Let $A$ and $B$ be sets and $f: A \to B$ a function. If $\forall b \in B,
+\exists a\in A$ such that $f(a) = b$, then $f$ is an \emph{onto} function
+or a \emph{surjection}.
+\end{definition}
+\begin{definition}[Bijection]
+Let $A$ and $B$ be sets and $f: A \to B$ a function. If $f$ is 1-1 and
+onto, $f$ is a \emph{bijection}. If a bijection exists from $A$ to $B$, we
+say there is a \emph{one-to-one correspondence} between $A$ and $B$.
+\end{definition}
+\begin{definition}[Cardinality]
+    If there exists a bijection $f: \{1,2,\dots,n\} \to A$ then we say the
+    \emph{cardinality} of $A$ is $n$, denoted $\myabs{A}=n$.
+\end{definition}
+\begin{definition}[Composition]
+    Let $F: A \to B$ and $G: B \to C$. Then the \emph{composition} of $G$
+    with $F$, denoted $G \circ F: A \to C$ is a function defined by
+    $$ G \circ F: a \mapsto G(F(a)) \ \ \forall a \in A$$
+\end{definition}
+\begin{definition}[The Pigeonhole Principle]
+    Let $A$ be an $n$-set and $B$ an $m$-set with $n > m$. Then $f: A \to
+    B$ cannot be 1--1.
 \end{definition}
 \end{document}

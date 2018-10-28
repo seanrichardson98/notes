@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{cancel}
+\usepackage{subfigure}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{my_notes}
+\usepackage{my_math}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newenvironment{just}{\textit{Justification.}}{}
+\newenvironment{trans}{\textit{Translation.}}{}
+
+\setlength\parindent{0pt}
+
+\newcommand{\pder}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\der}[2]{\frac{d{#1}}{d{#2}}}
+
+\begin{document}
+
+\title{Differential Equations}
+\author{Sean Richardson}
+\date{\today}
+\maketitle
+
+\section{}
+\begin{definition}
+There are three general approaches to solving differential equations.
+    \begin{itemize}
+        \item An \emph{analytic} approach is to use a method that provides
+            a formula for the exact solution.
+        \item A \emph{qualitative} approach is to look at different
+            properties or sketch to get a feel for the solution.
+        \item A \emph{numeric} approach is approximate the solution with
+            guess/check.
+    \end{itemize}
+\end{definition}
+
+Some basics of differential equations:
+\begin{itemize}
+    \item A differential equation relates some function to some derivative
+        of itself.
+    \item We solve for \emph{functions}.
+    \item Functions of one variable are ``ordinary differential
+        equations'' (ODE's). Functions of multiple variables are called
+        ``partial differential equations'' (PDE's).
+\end{itemize}
+
+\section{Models}
+\subsection{Exponential Model}
+/**/
+\begin{equation}
+    \der{P}{t} = kP
+\end{equation}
+/*solution*/
+/*slope field*/
+
+\subsection{Logistic Model}
+/*graph motivation*/
+\begin{align}
+    \frac{1}{P}\der{P}{t}=-\frac{k}{M}P+k \nonumber \\
+    \der{P}{t}=Pk(1-\frac{P}{M})
+\end{align}
+/*solution*/
+/*slope field*/
+
+\section{}
+\begin{theorem}[Fundamental Theorem of ODE's]
+    Suppose $f(t,y)$ is a function which $x$ is continuous and has
+    continuous $\pder{f}{y}$ in some neighborhood $(t_0,y_0)$. Then, the
+    IVP $$
+    \begin{cases}
+        y(t_0) = y_0 \\
+        \der{y}{t} = f(t,y)
+    \end{cases} $$
+    has a unique solution.
+\end{theorem}
+
+\end{document}
+
+

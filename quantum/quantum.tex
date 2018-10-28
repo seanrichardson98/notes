@@ -1,0 +1,132 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{my_math}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\pder}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\pdder}[2]{\frac{\partial^2{#1}}{\partial{#2^2}}}
+
+\setlength\parindent{0pt}
+\begin{document}
+\title{Quantum}
+\author{Sean Richardson}
+\date{\today}
+\maketitle
+\tableofcontents
+
+\section{Historical Remarks}
+\subsection{Ultraviolet Catastrophe}
+\begin{definition}[Black Body]
+    A \emph{black body} is some object that satisfies the following
+    conditions:
+\begin{itemize}
+    \item Absorbs all incoming radiation
+    \item Emits the entire spectrum
+    \item Is at equilibrium (temperature does not change)
+\end{itemize}
+We model Electromagnetic radiation with infinite \emph{harmonic
+oscillators}.
+We model a harmonic oscillator of frequency $\nu$ mathematically with:
+\begin{equation}
+    \Phi(x,t) = A\cos(\omega t - kx)
+    \tag{Harmonic Oscillator}
+\end{equation}
+Where the wave number $k \equiv \frac{2\pi}{\nu}$, the angular frequency
+$\omega \equiv 2\pi \nu$ and we have $\lambda = \frac{c}{\nu}$.
+The energy of a harmonic oscillator is given by
+\begin{equation}
+    \overline{E_{h.o.}} = k_B T
+    \label{eq:eo}
+\end{equation}
+We find that the number density of harmonic oscillators per volume at a
+specific frequency $\nu$ is given by:
+\begin{equation}
+    n(\nu) = \frac{8\pi \nu^2}{c^3}
+    \label{eq:nd}
+\end{equation}
+We can then combine (\ref{eq:eo}) and (\ref{eq:nd}) to find the energy
+density $\rho$ at temperature $T$ and frequency $\nu$:
+\begin{equation*}
+    \rho(\nu,T) = \overline{E_{h.o.}} n(\nu) = \frac{8\pi \nu^2 k_B T}{c^3}
+\end{equation*}
+However, we then have that the total energy of a black body is given by
+\begin{equation*}
+    E_{total} = \int_0^\infty \rho(\nu,T)d\nu = \frac{8 \pi k_B T}{c^3}
+    \int_0^\infty \nu^2 d\nu = \infty
+\end{equation*}
+So, the current model predicts infinite energy of a black body. This
+clearly incorrect result is called the \emph{ultraviolet catastrophe}. So,
+we must change our model.
+\end{definition}
+\marginpar{black body curve}
+Planck solved this in assuming that oscillators of the black body are
+quantized. They can only be in energy states $E = nh\nu$, $n \in
+\mathbb{Z}_{\geq 0}$ (Einstein later showed that it is the E.M. radiation
+itself that is quantized). Under this assumption we find that the energy
+density is given by
+\begin{equation*}
+    \rho(\nu, T) = \frac{8\pi h}{c^3}\frac{\nu^3}{e^{h \nu / (k_B T)}-1}
+    \tag{Plank's Formula}
+\end{equation*}
+Which fits the experimental black body curve. Note: each $h\nu$ ``package''
+of energy is called a photon.
+\subsection{Atomic Spectrum}
+Atomic gases were experimentally found to emit light at only discrete
+frequencies.
+Bohr's model offered an explanation for this.
+Bohr adopted Rutherford's model, of an orbiting electron (this model was
+rejected because maxwell's equations predict the electron would emit
+radiation making it unstable). Bohr assumes that angular momentum is
+quantized. Such that:
+$$ \myabs{\mathbf{L}} = \myabs{\mathbf{r} \times \mathbf{p}} = n \hbar $$
+Where $n \in \mathbb{N}$. Note $\hbar = \frac{h}{2\pi}$.
+Then, we find the energy of an electron must be,
+$$ E_n = \frac{-13.6}{n^2} eV $$
+So an emitted photon has energy $E_n-E_m$, $n,m\in\mathbb{N}$, which fits
+experimental data.
+\\
+But why is angular momentum quantized? Louis de Broglie answered this
+with the assumption that an electron (when thought of as a wave) should
+satisfy periodic boundary conditions. Or, $2\pi r = n \lambda$ where $r$ is
+the orbiting radius. Next, de Broglie some assumptions:
+\begin{itemize}
+    \item For any particle, $E = h\nu$ just as in the case of a photon.
+    \item For a photon, $E = pc$ from relativity.
+\end{itemize}
+Then, if we call the wavelength of the photon $\lambda_{dB}$,
+$$ \lambda_{dB} = \frac{h}{p} $$
+We then extend this from the case of a photon to everything, which works.
+Additionally, in combining de Broglie's insights: $\lambda_{dB} =
+\frac{h}{p}$ and $2\pi r = n\lambda$, we find that angular momentum is
+quantized as Bohr predicted, $\myabs{\mathbf{L}} = n \hbar$.
+\subsection{Schr\"odinger's Equation}
+To summarize, we find that particles have wave-like properties.
+Specifically, $E=h\nu$, and $p = \frac{h}{\lambda_{dB}}$. Or, $E = \hbar
+\omega$ and $p = \hbar k$.
+So, we assign a wave equation to particles of the form
+$$ \Psi(x,t) = e^{i(kx-\omega t)} $$
+This is a solution to the following ODE's:
+\begin{align*}
+    \frac{-\hbar}{2m} \pdder{\Psi(x,t)}{x} &= E\Psi(x,t)
+    \tag{ODE 1}\\
+    i\hbar\pder{\Psi(x,t)}{t} &= E\Psi(x,t)
+    \tag{ODE 2}
+\end{align*}
+This motivates the following PDE, Schr\"odinger's equation with the
+additional generalization that $E = \frac{p^2}{2m} + \mathcal{V}(x)$
+\begin{equation}
+    \frac{-\hbar}{2m} \pdder{\Psi(x,t)}{x}
+    + \mathcal{V}(x)\Psi(x,t)
+    = i\hbar\pder{\Psi(x,t)}{t}
+    \tag{Schr\"odinger's equation}
+\end{equation}
+It turns out that the solutions to this equation 
+\section{}
+\end{document}
