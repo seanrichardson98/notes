@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\usepackage{mathtools}
+
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{commath}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{cancel}
+\usepackage{subfigure}
+\usepackage{multicol}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+\usepackage{my_notes}
+\usepackage{my_math}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{ex}[theorem]{Example}
+
+\newenvironment{just}{\textit{Justification.}}{}
+\newenvironment{trans}{\textit{Translation.}}{}
+
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+
+\setlength\parindent{0pt}
+
+\newcommand{\pder}[2]{\frac{\partial{#1}}{\partial{#2}}}
+
+\begin{document}
+
+\title{Complex Analysis}
+\author{Sean Richardson}
+\date{\today}
+\maketitle
+
+\section{Basics}
+
+\subsection{Definitions}
+\begin{definition}[Complex Number]
+We define a complex number $z$ to be of the form $z=x+iy$. Where $x,y \in
+\mathbb{R}$ and $i$ is defined such that $i^2=-1$. We say $z \in
+\mathbb{C}$.
+\end{definition}
+\begin{definition}[Conjugate]
+    If $z \in \mathbb{C}$ such that $x = x+iy$ then $z$ \emph{conjugate}, written $\bar{z}$, is
+    defined $\bar{z} = x-iy$.
+\end{definition}
+\begin{definition} Some notation definitions
+    \begin{itemize}
+        \item $\myabs{z}^2 \coloneqq  z\bar{z}$
+        \item If $z = x+iy$ then $\re(z) \coloneqq x$.
+        \item If $z = x+iy$ then $\im(z) \coloneqq y$.
+        \item /*$\arg(z) = \theta$*/
+    \end{itemize}
+\end{definition}
+/*Complex Plane and def reps*/
+\subsection{Properties}
+\begin{prop} Take $z_1,z_2 \in \mathbb{C}$
+    \begin{itemize}
+        \item $\re(z_1+z_2) = \re(z_1)+\re(z_2)$
+        \item $\im(z_1+z_2) = \im(z_1)+\im(z_2)$
+        \item $\overline{z_1+z_2} = \bar{z_1}+\bar{z_2}$
+        \item $\overline{z_1 z_2} = \bar{z_1}\bar{z_2}$
+        \item $\myabs{z_1 z_2} = \myabs{z_1}\myabs{z_2}$
+        \item $\arg(z_1 z_2) = \arg(z_1) + \arg(z_2)$
+    \end{itemize}
+\end{prop}
+\begin{prop}[Triangle Inequality]
+    $\myabs{z_1+z_2} \leq \myabs{z_1} + \myabs{z_2}$
+\end{prop}
+\begin{prop}[/*?*/]
+    $e^{i\theta} = \cos{\theta} + i\sin{\theta}$
+\end{prop}
+\begin{prop}
+    $z^n = \myabs{z}^n e^{in\theta}$
+\end{prop}
+\begin{prop}
+    $\sqrt[n]{z}$ is anything such that ${(\sqrt[n]{z})}^n=z$.
+    So,
+    $$\sqrt[n]{z}=\{ \sqrt[n]{\myabs{z}}e^{\frac{i(\theta+2\pi k)}{n}}
+    \mid 0 \leq k < n \}$$
+\end{prop}
+
+\section{Transformations}
+\subsection{Intro}
+\begin{ex}~
+    \begin{itemize}
+    \item $R(z) = e^{i\alpha}z$ defines a rotation by $\alpha$
+    \item $T(z) = z+z_0$ translates $0$ to $z_0$
+    \item $S(z) = \alpha z$ scales/dilates the plane by $\alpha$ centered
+        at $0$
+    \end{itemize}
+\end{ex}
+\begin{ex}
+    $z \to z^2$ transformation /*explanation and visual*/
+\end{ex}
+\subsection{Continuity}
+\begin{definition}[Continuity]
+    If we have some function $f: \mathbb{C} \to \mathbb{C}$. We say $f$ is
+    continuous at $z \in \mathbb{C}$ if for every sequence $\{ z_k \}$, we
+    have $z_k \to z \implies f(z_k) \to f(z)$. Or, intuitively, if $z
+    \approx a$, we have $f(z) \approx f(a)$.
+\end{definition}
+
+\subsection{Branches}
+If we have some function $f$ that maps from one value to a set of values,
+$f: \mathbb{C} \to \{z \in \mathbb{C}\}$. Then, we want to restrict the
+function such that $f$ is $1-1$ and continuous.
+\begin{definition}
+    If we have a function $f: \mathbb{C} \to {z \in \mathbb{C}}$
+\end{definition}
+/*Principle Branch*/\\
+/*Riemann Surface*/
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
