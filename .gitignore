@@ -22,3 +22,7 @@ diffeq/*
 la/*
 !la/la.tex
 !la/la.pdf
+complex/*
+complex/complex.tex
+complex/complex.pdf
+
